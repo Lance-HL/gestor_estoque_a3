@@ -67,16 +67,14 @@ public class Principal {
             );
             MENUMV = Integer.parseInt(MENUMOVIMENTAÇÃO);
             
-            // ============================================================
-            // TELA 1.2.1 - ENTRADA DE PRODUTO (CÓDIGO NOVO ADICIONADO AQUI)
-            // ============================================================
+            
             if (MENUMV == 1) {
                 
-                String CONFIRMAENTRADA = "S"; // inicia como S para entrar no loop pela primeira vez
+                String CONFIRMAENTRADA = "S";  
                 
                 while (CONFIRMAENTRADA.equalsIgnoreCase("S")) {
                     
-                    // INPUT 1 - Nome do produto
+                     
                     String NOMEPRODUTO = JOptionPane.showInputDialog(
                         "<html><div style='text-align: center;'>"
                         + "SEX ON THE BAR LTDA<br>"
@@ -88,7 +86,7 @@ public class Principal {
                         + "</div></html>"
                     );
                     
-                    // INPUT 2 - Quantidade atual
+                     
                     String QTDEATUALSTR = JOptionPane.showInputDialog(
                         "<html><div style='text-align: center;'>"
                         + "SEX ON THE BAR LTDA<br>"
@@ -102,7 +100,7 @@ public class Principal {
                     );
                     int QTDEATUAL = Integer.parseInt(QTDEATUALSTR);
                     
-                    // INPUT 3 - Quantidade de entrada
+                     
                     String QTDEENTRADASTR = JOptionPane.showInputDialog(
                         "<html><div style='text-align: center;'>"
                         + "SEX ON THE BAR LTDA<br>"
@@ -117,10 +115,10 @@ public class Principal {
                     );
                     int QTDEENTRADA = Integer.parseInt(QTDEENTRADASTR);
                     
-                    // CALCULA A QUANTIDADE FINAL AUTOMATICAMENTE
+                     
                     int QTDEFINAL = QTDEATUAL + QTDEENTRADA;
                     
-                    // INPUT 4 - Confirmação da entrada (S/N)
+                    
                     String CONFIRMA = JOptionPane.showInputDialog(
                         "<html><div style='text-align: center;'>"
                         + "SEX ON THE BAR LTDA<br>"
@@ -136,7 +134,7 @@ public class Principal {
                         + "</div></html>"
                     );
                     
-                    // INPUT 5 - Nova entrada (S/N)
+                    
                     if (CONFIRMA.equalsIgnoreCase("S")) {
                         CONFIRMAENTRADA = JOptionPane.showInputDialog(
                             "<html><div style='text-align: center;'>"
@@ -150,7 +148,7 @@ public class Principal {
                             + "</div></html>"
                         );
                     } else {
-                        // Se não confirmou, pergunta nova entrada sem salvar
+                         
                         CONFIRMAENTRADA = JOptionPane.showInputDialog(
                             "<html><div style='text-align: center;'>"
                             + "SEX ON THE BAR LTDA<br>"
@@ -164,14 +162,10 @@ public class Principal {
                         );
                     }
                     
-                    // Se responder N em nova entrada, sai do loop e volta para tela 1.2.1 (menu movimentação)
-                    // O while já cuida disso: se CONFIRMAENTRADA != "S", o loop encerra naturalmente
+                     
                 }
             }
-            // ============================================================
-            // FIM DO CÓDIGO NOVO
-            // ============================================================
-            
+             
             }
         
         }
