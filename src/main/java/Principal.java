@@ -1,3 +1,4 @@
+```java
 import javax.swing.JOptionPane;
 public class Principal {
     public static void main(String[] args) {
@@ -12,7 +13,6 @@ public class Principal {
                 + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
                 + "MENU PRINCIPAL"
                 + "<div><br>"
-                        
                 + "<div style='text-align: justify;'>"
                 + "1 - CADASTRO DE PRODUTO<br>"
                 + "2 - MOVIMENTAÇÃO<br>"
@@ -35,7 +35,6 @@ public class Principal {
                 + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
                 + "CADASTRO DE PRODUTOS"
                 + "</div><br>"
-                        
                 + "<div style='text-align: justify;'>"
                 + "1 - INCLUSÃO<br>"
                 + "2 - ALTERAÇÃO<br>"
@@ -59,7 +58,6 @@ public class Principal {
                 + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
                 + "MOVIMENTAÇÃO"
                 + "</div><br>"
-                        
                 + "<div style='text-align: justify;'>"
                 + "1 - ENTRADA<br>"
                 + "2 - SAIDA<br>"
@@ -68,13 +66,11 @@ public class Principal {
             );
             MENUMV = Integer.parseInt(MENUMOVIMENTAÇÃO);
             
-                
                 if (MENUMV == 1) {
                     
                     String CONFIRMAENTRADA = "S";
                     
                     while (CONFIRMAENTRADA.equalsIgnoreCase("S")) {
-                        
                         
                         String NOMEPRODUTO = JOptionPane.showInputDialog(
                             "<html><div style='text-align: center;'>"
@@ -86,7 +82,6 @@ public class Principal {
                             + "PRODUTO:"
                             + "</div></html>"
                         );
-                        
                         
                         String QTDEATUALSTR = JOptionPane.showInputDialog(
                             "<html><div style='text-align: center;'>"
@@ -100,7 +95,6 @@ public class Principal {
                             + "</div></html>"
                         );
                         int QTDEATUAL = Integer.parseInt(QTDEATUALSTR);
-                        
                         
                         String QTDEENTRADASTR = JOptionPane.showInputDialog(
                             "<html><div style='text-align: center;'>"
@@ -116,9 +110,7 @@ public class Principal {
                         );
                         int QTDEENTRADA = Integer.parseInt(QTDEENTRADASTR);
                         
-                        
                         int QTDEFINAL = QTDEATUAL + QTDEENTRADA;
-                        
                         
                         String CONFIRMA = JOptionPane.showInputDialog(
                             "<html><div style='text-align: center;'>"
@@ -135,7 +127,6 @@ public class Principal {
                             + "</div></html>"
                         );
                         
-                       
                         if (CONFIRMA.equalsIgnoreCase("S")) {
                             CONFIRMAENTRADA = JOptionPane.showInputDialog(
                                 "<html><div style='text-align: center;'>"
@@ -163,13 +154,12 @@ public class Principal {
                         }
                     }
                 }
-                
+
                 if (MENUMV == 2) {
                     
                     String CONFIRMASAIDA = "S";
                     
                     while (CONFIRMASAIDA.equalsIgnoreCase("S")) {
-                        
                         
                         String NOMEPRODUTOSAIDA = JOptionPane.showInputDialog(
                             "<html><div style='text-align: center;'>"
@@ -181,7 +171,6 @@ public class Principal {
                             + "PRODUTO:"
                             + "</div></html>"
                         );
-                        
                         
                         String QTDEATUALSAIDASTR = JOptionPane.showInputDialog(
                             "<html><div style='text-align: center;'>"
@@ -195,7 +184,6 @@ public class Principal {
                             + "</div></html>"
                         );
                         int QTDEATUALSAIDA = Integer.parseInt(QTDEATUALSAIDASTR);
-                        
                         
                         String QTDESAIDASTR = JOptionPane.showInputDialog(
                             "<html><div style='text-align: center;'>"
@@ -211,9 +199,7 @@ public class Principal {
                         );
                         int QTDESAIDA = Integer.parseInt(QTDESAIDASTR);
                         
-                        
                         int QTDEFINALSAIDA = QTDEATUALSAIDA - QTDESAIDA;
-                        
                         
                         String CONFIRMA = JOptionPane.showInputDialog(
                             "<html><div style='text-align: center;'>"
@@ -229,7 +215,6 @@ public class Principal {
                             + "CONFIRMA SAÍDA (S/N)?:"
                             + "</div></html>"
                         );
-                        
                         
                         if (CONFIRMA.equalsIgnoreCase("S")) {
                             CONFIRMASAIDA = JOptionPane.showInputDialog(
@@ -258,9 +243,131 @@ public class Principal {
                         }
                     }
                 }
-                
             }
         }
+
+        if (MENUPP == 3) {
+
+            String NOVOREAJUSTE = "S";
+
+            while (NOVOREAJUSTE.equalsIgnoreCase("S")) {
+
+                String TIPOREAJUSTE = JOptionPane.showInputDialog(
+                    "<html><div style='text-align: center;'>"
+                    + "SEX ON THE BAR LTDA<br>"
+                    + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                    + "REAJUSTE DE PREÇOS"
+                    + "</div><br><br>"
+                    + "<div style='text-align: justify;'>"
+                    + "REAJUSTE GERAL OU DE UM PRODUTO?<br><br>"
+                    + "1 - GERAL<br>"
+                    + "2 - UM PRODUTO<br>"
+                    + "</div></html>"
+                );
+
+                String NOMEPRODUTORJ = JOptionPane.showInputDialog(
+                    "<html><div style='text-align: center;'>"
+                    + "SEX ON THE BAR LTDA<br>"
+                    + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                    + "REAJUSTE DE PREÇOS"
+                    + "</div><br><br>"
+                    + "<div style='text-align: justify;'>"
+                    + "REAJUSTE : " + (TIPOREAJUSTE.equals("1") ? "GERAL" : "UM PRODUTO") + "<br><br>"
+                    + "PRODUTO:"
+                    + "</div></html>"
+                );
+
+                String UNIDADEPRODUTO = JOptionPane.showInputDialog(
+                    "<html><div style='text-align: center;'>"
+                    + "SEX ON THE BAR LTDA<br>"
+                    + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                    + "REAJUSTE DE PREÇOS"
+                    + "</div><br><br>"
+                    + "<div style='text-align: justify;'>"
+                    + "REAJUSTE : " + (TIPOREAJUSTE.equals("1") ? "GERAL" : "UM PRODUTO") + "<br>"
+                    + "PRODUTO  : " + NOMEPRODUTORJ + "<br><br>"
+                    + "UNIDADE:"
+                    + "</div></html>"
+                );
+
+                String PRECOATUALSTR = JOptionPane.showInputDialog(
+                    "<html><div style='text-align: center;'>"
+                    + "SEX ON THE BAR LTDA<br>"
+                    + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                    + "REAJUSTE DE PREÇOS"
+                    + "</div><br><br>"
+                    + "<div style='text-align: justify;'>"
+                    + "REAJUSTE : " + (TIPOREAJUSTE.equals("1") ? "GERAL" : "UM PRODUTO") + "<br>"
+                    + "PRODUTO  : " + NOMEPRODUTORJ + "<br>"
+                    + "UNIDADE  : " + UNIDADEPRODUTO + "<br><br>"
+                    + "PREÇO ATUAL:"
+                    + "</div></html>"
+                );
+                double PRECOATUAL = Double.parseDouble(PRECOATUALSTR.replace(",", "."));
+
+                String PERCENTUALSTR = JOptionPane.showInputDialog(
+                    "<html><div style='text-align: center;'>"
+                    + "SEX ON THE BAR LTDA<br>"
+                    + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                    + "REAJUSTE DE PREÇOS"
+                    + "</div><br><br>"
+                    + "<div style='text-align: justify;'>"
+                    + "REAJUSTE   : " + (TIPOREAJUSTE.equals("1") ? "GERAL" : "UM PRODUTO") + "<br>"
+                    + "PRODUTO    : " + NOMEPRODUTORJ + "<br>"
+                    + "UNIDADE    : " + UNIDADEPRODUTO + "<br>"
+                    + "PREÇO ATUAL: " + PRECOATUALSTR + "<br><br>"
+                    + "PERCENTUAL DE REAJUSTE:"
+                    + "</div></html>"
+                );
+                double PERCENTUAL = Double.parseDouble(PERCENTUALSTR.replace(",", "."));
+
+                double PRECOFINAL = PRECOATUAL + (PRECOATUAL * PERCENTUAL / 100);
+
+                String CONFIRMAREAJUSTE = JOptionPane.showInputDialog(
+                    "<html><div style='text-align: center;'>"
+                    + "SEX ON THE BAR LTDA<br>"
+                    + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                    + "REAJUSTE DE PREÇOS"
+                    + "</div><br><br>"
+                    + "<div style='text-align: justify;'>"
+                    + "REAJUSTE   : " + (TIPOREAJUSTE.equals("1") ? "GERAL" : "UM PRODUTO") + "<br>"
+                    + "PRODUTO    : " + NOMEPRODUTORJ + "<br>"
+                    + "UNIDADE    : " + UNIDADEPRODUTO + "<br>"
+                    + "PREÇO ATUAL: " + String.format("%.2f", PRECOATUAL) + "<br>"
+                    + "PERCENTUAL : " + String.format("%.2f", PERCENTUAL) + "%<br>"
+                    + "PREÇO FINAL: " + String.format("%.2f", PRECOFINAL) + "<br><br>"
+                    + "CONFIRMA REAJUSTE (S/N)?:"
+                    + "</div></html>"
+                );
+
+                if (CONFIRMAREAJUSTE.equalsIgnoreCase("S")) {
+                    NOVOREAJUSTE = JOptionPane.showInputDialog(
+                        "<html><div style='text-align: center;'>"
+                        + "SEX ON THE BAR LTDA<br>"
+                        + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                        + "REAJUSTE DE PREÇOS"
+                        + "</div><br><br>"
+                        + "<div style='text-align: justify;'>"
+                        + "REAJUSTE CONFIRMADO COM SUCESSO!<br><br>"
+                        + "NOVO REAJUSTE (S/N)?:"
+                        + "</div></html>"
+                    );
+                } else {
+                    NOVOREAJUSTE = JOptionPane.showInputDialog(
+                        "<html><div style='text-align: center;'>"
+                        + "SEX ON THE BAR LTDA<br>"
+                        + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                        + "REAJUSTE DE PREÇOS"
+                        + "</div><br><br>"
+                        + "<div style='text-align: justify;'>"
+                        + "REAJUSTE CANCELADO.<br><br>"
+                        + "NOVO REAJUSTE (S/N)?:"
+                        + "</div></html>"
+                    );
+                }
+            }
+        }
+
         }
     }
 }
