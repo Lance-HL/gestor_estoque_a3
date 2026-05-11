@@ -1,4 +1,3 @@
-```java
 import javax.swing.JOptionPane;
 public class Principal {
     public static void main(String[] args) {
@@ -44,6 +43,163 @@ public class Principal {
                 + "</div></html>"  
             );
             MENUCD = Integer.parseInt(MENUCADASTRO);
+
+            if (MENUCD == 4) {
+
+                boolean novaExclusao = true;
+
+                while (novaExclusao) {
+
+                    // Input 1 - Nome
+                    String nome = JOptionPane.showInputDialog(null,
+                        "<html><div style='text-align: center;'>"
+                        + "SEX ON THE BAR LTDA<br>"
+                        + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                        + "EXCLUSÃO DE PRODUTO"
+                        + "</div><br><br>"
+                        + "<div style='text-align: justify;'>"
+                        + "NOME :"
+                        + "</div></html>",
+                        "SEX ON THE BAR LTDA - Tela 1.1.4",
+                        JOptionPane.PLAIN_MESSAGE);
+
+                    if (nome == null) break;
+
+                    // Input 2 - Preço
+                    String preco = JOptionPane.showInputDialog(null,
+                        "<html><div style='text-align: center;'>"
+                        + "SEX ON THE BAR LTDA<br>"
+                        + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                        + "EXCLUSÃO DE PRODUTO"
+                        + "</div><br><br>"
+                        + "<div style='text-align: justify;'>"
+                        + "NOME      : " + nome + "<br><br>"
+                        + "PREÇO :"
+                        + "</div></html>",
+                        "SEX ON THE BAR LTDA - Tela 1.1.4",
+                        JOptionPane.PLAIN_MESSAGE);
+
+                    if (preco == null) break;
+
+                    // Input 3 - Unidade
+                    String unidade = JOptionPane.showInputDialog(null,
+                        "<html><div style='text-align: center;'>"
+                        + "SEX ON THE BAR LTDA<br>"
+                        + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                        + "EXCLUSÃO DE PRODUTO"
+                        + "</div><br><br>"
+                        + "<div style='text-align: justify;'>"
+                        + "NOME      : " + nome + "<br>"
+                        + "PREÇO     : " + preco + "<br><br>"
+                        + "UNIDADE :"
+                        + "</div></html>",
+                        "SEX ON THE BAR LTDA - Tela 1.1.4",
+                        JOptionPane.PLAIN_MESSAGE);
+
+                    if (unidade == null) break;
+
+                    // Input 4 - Quantidade
+                    String quantidade = JOptionPane.showInputDialog(null,
+                        "<html><div style='text-align: center;'>"
+                        + "SEX ON THE BAR LTDA<br>"
+                        + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                        + "EXCLUSÃO DE PRODUTO"
+                        + "</div><br><br>"
+                        + "<div style='text-align: justify;'>"
+                        + "NOME      : " + nome + "<br>"
+                        + "PREÇO     : " + preco + "<br>"
+                        + "UNIDADE   : " + unidade + "<br><br>"
+                        + "QUANTIDADE :"
+                        + "</div></html>",
+                        "SEX ON THE BAR LTDA - Tela 1.1.4",
+                        JOptionPane.PLAIN_MESSAGE);
+
+                    if (quantidade == null) break;
+
+                    // Input 5 - Confirmação da exclusão (S/N)
+                    String confirmacao = "";
+                    while (!confirmacao.equalsIgnoreCase("S") && !confirmacao.equalsIgnoreCase("N")) {
+                        confirmacao = JOptionPane.showInputDialog(null,
+                            "<html><div style='text-align: center;'>"
+                            + "SEX ON THE BAR LTDA<br>"
+                            + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                            + "EXCLUSÃO DE PRODUTO"
+                            + "</div><br><br>"
+                            + "<div style='text-align: justify;'>"
+                            + "NOME      : " + nome + "<br>"
+                            + "PREÇO     : " + preco + "<br>"
+                            + "UNIDADE   : " + unidade + "<br>"
+                            + "QUANTIDADE: " + quantidade + "<br><br>"
+                            + "CONFIRMA EXCLUSÃO ( S/N ) ?"
+                            + "</div></html>",
+                            "SEX ON THE BAR LTDA - Tela 1.1.4",
+                            JOptionPane.PLAIN_MESSAGE);
+
+                        if (confirmacao == null) { confirmacao = "N"; break; }
+
+                        if (!confirmacao.equalsIgnoreCase("S") && !confirmacao.equalsIgnoreCase("N")) {
+                            JOptionPane.showMessageDialog(null,
+                                "Entrada inválida. Digite S para Sim ou N para Não.",
+                                "Aviso", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
+
+                    if (confirmacao.equalsIgnoreCase("S")) {
+                        JOptionPane.showMessageDialog(null,
+                            "<html><div style='text-align: center;'>"
+                            + "SEX ON THE BAR LTDA<br>"
+                            + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                            + "EXCLUSÃO DE PRODUTO"
+                            + "</div><br><br>"
+                            + "<div style='text-align: justify;'>"
+                            + "PRODUTO EXCLUÍDO COM SUCESSO!"
+                            + "</div></html>",
+                            "SEX ON THE BAR LTDA - Tela 1.1.4",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    } else {
+                        JOptionPane.showMessageDialog(null,
+                            "<html><div style='text-align: center;'>"
+                            + "SEX ON THE BAR LTDA<br>"
+                            + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                            + "EXCLUSÃO DE PRODUTO"
+                            + "</div><br><br>"
+                            + "<div style='text-align: justify;'>"
+                            + "EXCLUSÃO CANCELADA."
+                            + "</div></html>",
+                            "SEX ON THE BAR LTDA - Tela 1.1.4",
+                            JOptionPane.INFORMATION_MESSAGE);
+                    }
+
+                    // Input 6 - Nova exclusão (S/N)
+                    String resposta = "";
+                    while (!resposta.equalsIgnoreCase("S") && !resposta.equalsIgnoreCase("N")) {
+                        resposta = JOptionPane.showInputDialog(null,
+                            "<html><div style='text-align: center;'>"
+                            + "SEX ON THE BAR LTDA<br>"
+                            + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                            + "EXCLUSÃO DE PRODUTO"
+                            + "</div><br><br>"
+                            + "<div style='text-align: justify;'>"
+                            + "NOVA EXCLUSÃO ( S/N ) ?"
+                            + "</div></html>",
+                            "SEX ON THE BAR LTDA - Tela 1.1.4",
+                            JOptionPane.PLAIN_MESSAGE);
+
+                        if (resposta == null) { resposta = "N"; break; }
+
+                        if (!resposta.equalsIgnoreCase("S") && !resposta.equalsIgnoreCase("N")) {
+                            JOptionPane.showMessageDialog(null,
+                                "Entrada inválida. Digite S para Sim ou N para Não.",
+                                "Aviso", JOptionPane.WARNING_MESSAGE);
+                        }
+                    }
+
+                    if (resposta.equalsIgnoreCase("N")) {
+                        novaExclusao = false; // Retorna para Tela 1.1
+                    }
+                }
+            }
+
             }
         }
 
