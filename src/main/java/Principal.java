@@ -21,6 +21,7 @@ public class Principal {
                 + "</div></html>"
              );
         
+        if (MENUPRINCIPAL == null) break;
         MENUPP = Integer.parseInt(MENUPRINCIPAL);
         
         if (MENUPP == 1) {
@@ -42,6 +43,7 @@ public class Principal {
                 + "0 - RETORNAR<br><br>"
                 + "</div></html>"  
             );
+            if (MENUCADASTRO == null) break;
             MENUCD = Integer.parseInt(MENUCADASTRO);
 
             if (MENUCD == 4) {
@@ -220,6 +222,7 @@ public class Principal {
                 + "0 - RETORNAR<br><br>"
                 + "</div></html>"  
             );
+            if (MENUMOVIMENTAÇÃO == null) break;
             MENUMV = Integer.parseInt(MENUMOVIMENTAÇÃO);
             
                 if (MENUMV == 1) {
@@ -283,7 +286,19 @@ public class Principal {
                             + "</div></html>"
                         );
                         
-                        if (CONFIRMA.equalsIgnoreCase("S")) {
+                        if (CONFIRMA == null || !CONFIRMA.equalsIgnoreCase("S")) {
+                            CONFIRMAENTRADA = JOptionPane.showInputDialog(
+                                "<html><div style='text-align: center;'>"
+                                + "SEX ON THE BAR LTDA<br>"
+                                + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                                + "MOVIMENTAÇÃO - ENTRADA DE PRODUTO"
+                                + "</div><br><br>"
+                                + "<div style='text-align: justify;'>"
+                                + "ENTRADA CANCELADA.<br><br>"
+                                + "NOVA ENTRADA (S/N)?:"
+                                + "</div></html>"
+                            );
+                        } else {
                             CONFIRMAENTRADA = JOptionPane.showInputDialog(
                                 "<html><div style='text-align: center;'>"
                                 + "SEX ON THE BAR LTDA<br>"
@@ -372,7 +387,19 @@ public class Principal {
                             + "</div></html>"
                         );
                         
-                        if (CONFIRMA.equalsIgnoreCase("S")) {
+                        if (CONFIRMA == null || !CONFIRMA.equalsIgnoreCase("S")) {
+                            CONFIRMASAIDA = JOptionPane.showInputDialog(
+                                "<html><div style='text-align: center;'>"
+                                + "SEX ON THE BAR LTDA<br>"
+                                + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                                + "MOVIMENTAÇÃO - SAÍDA DE PRODUTO"
+                                + "</div><br><br>"
+                                + "<div style='text-align: justify;'>"
+                                + "SAÍDA CANCELADA.<br><br>"
+                                + "NOVA SAÍDA (S/N)?:"
+                                + "</div></html>"
+                            );
+                        } else {
                             CONFIRMASAIDA = JOptionPane.showInputDialog(
                                 "<html><div style='text-align: center;'>"
                                 + "SEX ON THE BAR LTDA<br>"
@@ -406,7 +433,7 @@ public class Principal {
 
             String NOVOREAJUSTE = "S";
 
-            while (NOVOREAJUSTE.equalsIgnoreCase("S")) {
+            while (NOVOREAJUSTE != null && NOVOREAJUSTE.equalsIgnoreCase("S")) {
 
                 String TIPOREAJUSTE = JOptionPane.showInputDialog(
                     "<html><div style='text-align: center;'>"
@@ -496,7 +523,7 @@ public class Principal {
                     + "</div></html>"
                 );
 
-                if (CONFIRMAREAJUSTE.equalsIgnoreCase("S")) {
+                if (CONFIRMAREAJUSTE != null && CONFIRMAREAJUSTE.equalsIgnoreCase("S")) {
                     NOVOREAJUSTE = JOptionPane.showInputDialog(
                         "<html><div style='text-align: center;'>"
                         + "SEX ON THE BAR LTDA<br>"
@@ -519,6 +546,162 @@ public class Principal {
                         + "REAJUSTE CANCELADO.<br><br>"
                         + "NOVO REAJUSTE (S/N)?:"
                         + "</div></html>"
+                    );
+                }
+            }
+        }
+
+        if (MENUPP == 4) {
+
+            int MENUREL = -1;
+
+            while (MENUREL != 0) {
+                String MENURELATORIO = JOptionPane.showInputDialog(
+                    "<html><div style='text-align: center;'>"
+                    + "SEX ON THE BAR LTDA<br>"
+                    + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                    + "RELATÓRIOS"
+                    + "</div><br>"
+                    + "<div style='text-align: justify;'>"
+                    + "1 - LISTA DE PREÇOS<br>"
+                    + "2 - BALANÇO FÍSICO-FINANCEIRO<br>"
+                    + "0 - RETORNAR<br><br>"
+                    + "</div></html>"
+                );
+                if (MENURELATORIO == null) break;
+                MENUREL = Integer.parseInt(MENURELATORIO);
+
+                if (MENUREL == 1) {
+
+                    // Dados simulados da lista de preços
+                    String[][] produtos = {
+                        {"AXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", "XXX", "000.009,99"},
+                        {"BXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", "XXX", "000.009,99"},
+                        {"CXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", "XXX", "000.009,99"},
+                        {"DXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", "XXX", "000.009,99"},
+                        {"EXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX", "XXX", "000.009,99"}
+                    };
+
+                    java.time.LocalDate hoje = java.time.LocalDate.now();
+                    String data = String.format("%02d/%02d/%04d",
+                        hoje.getDayOfMonth(), hoje.getMonthValue(), hoje.getYear());
+                    int pagina = 1;
+
+                    // Monta as linhas da tabela
+                    StringBuilder linhas = new StringBuilder();
+                    for (String[] p : produtos) {
+                        linhas.append(
+                            "<tr>"
+                            + "<td style='padding-right:20px;'>" + p[0] + "</td>"
+                            + "<td style='padding-right:20px; text-align:center;'>" + p[1] + "</td>"
+                            + "<td style='text-align:right;'>" + p[2] + "</td>"
+                            + "</tr>"
+                        );
+                    }
+
+                    JOptionPane.showMessageDialog(null,
+                        "<html>"
+                        + "<div style='font-family:monospace;'>"
+                        + "<div style='text-align:center;'>"
+                        + "SEX ON THE BAR LTDA<br>"
+                        + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                        + "</div>"
+                        + "<div style='display:flex; justify-content:space-between;'>"
+                        + "<span>" + data + "</span>"
+                        + "<span>&nbsp;&nbsp;&nbsp;&nbsp;LISTA DE PREÇOS&nbsp;&nbsp;&nbsp;&nbsp;</span>"
+                        + "<span>PG " + String.format("%03d", pagina) + "</span>"
+                        + "</div><br>"
+                        + "<table width='100%' style='border-collapse:collapse;'>"
+                        + "<tr style='border-bottom:1px solid black;'>"
+                        + "<th style='text-align:left; padding-right:20px;'>PRODUTO</th>"
+                        + "<th style='text-align:center; padding-right:20px;'>UND</th>"
+                        + "<th style='text-align:right;'>PREÇO</th>"
+                        + "</tr>"
+                        + "<tr><td colspan='3'><hr/></td></tr>"
+                        + linhas.toString()
+                        + "</table>"
+                        + "</div>"
+                        + "</html>",
+                        "SEX ON THE BAR LTDA - Tela 1.4.1",
+                        JOptionPane.PLAIN_MESSAGE
+                    );
+                }
+
+                if (MENUREL == 2) {
+
+                    // Dados simulados do balanço físico-financeiro
+                    String[][] produtosBF = {
+                        {"AXXXXXXXXXXXXXXXXXXXXXXXXX", "XXX", "000.009,99", "0009"},
+                        {"BXXXXXXXXXXXXXXXXXXXXXXXXX", "XXX", "000.009,99", "0009"},
+                        {"CXXXXXXXXXXXXXXXXXXXXXXXXX", "XXX", "000.009,99", "0009"},
+                        {"DXXXXXXXXXXXXXXXXXXXXXXXXX", "XXX", "000.009,99", "0009"},
+                        {"EXXXXXXXXXXXXXXXXXXXXXXXXX", "XXX", "000.009,99", "0009"}
+                    };
+
+                    java.time.LocalDate hojeBF = java.time.LocalDate.now();
+                    String dataBF = String.format("%02d/%02d/%04d",
+                        hojeBF.getDayOfMonth(), hojeBF.getMonthValue(), hojeBF.getYear());
+                    int paginaBF = 1;
+
+                    int totalItens = 0;
+                    double valorTotalEstoque = 0;
+
+                    StringBuilder linhasBF = new StringBuilder();
+                    for (String[] p : produtosBF) {
+                        double precoUnit = Double.parseDouble(
+                            p[2].replace(".", "").replace(",", "."));
+                        int qtde = Integer.parseInt(p[3]);
+                        double precoTotal = precoUnit * qtde;
+                        totalItens += qtde;
+                        valorTotalEstoque += precoTotal;
+
+                        String precoTotalFmt = String.format("%.2f", precoTotal)
+                            .replace(".", "X").replace(",", ".").replace("X", ",");
+                        linhasBF.append(
+                            "<tr>"
+                            + "<td style='padding-right:15px;'>" + p[0] + "</td>"
+                            + "<td style='padding-right:15px; text-align:center;'>" + p[1] + "</td>"
+                            + "<td style='padding-right:15px; text-align:right;'>" + p[2] + "</td>"
+                            + "<td style='padding-right:15px; text-align:center;'>" + String.format("%04d", qtde) + "</td>"
+                            + "<td style='text-align:right;'>" + precoTotalFmt + "</td>"
+                            + "</tr>"
+                        );
+                    }
+
+                    String totalItensFormatado = String.format("%04d", totalItens);
+                    String valorTotalFormatado = String.format("%.2f", valorTotalEstoque)
+                        .replace(".", "X").replace(",", ".").replace("X", ",");
+
+                    JOptionPane.showMessageDialog(null,
+                        "<html>"
+                        + "<div style='font-family:monospace;'>"
+                        + "<div style='text-align:center;'>"
+                        + "SEX ON THE BAR LTDA<br>"
+                        + "SISTEMA DE CONTROLE DE ESTOQUE<br><br>"
+                        + "</div>"
+                        + "<table width='100%'><tr>"
+                        + "<td>" + dataBF + "</td>"
+                        + "<td style='text-align:center;'>BALAN&Ccedil;O F&Iacute;SICO-FINANCEIRO</td>"
+                        + "<td style='text-align:right;'>PG " + String.format("%03d", paginaBF) + "</td>"
+                        + "</tr></table><br>"
+                        + "<table width='100%' style='border-collapse:collapse;'>"
+                        + "<tr>"
+                        + "<th style='text-align:left; padding-right:15px;'>PRODUTO</th>"
+                        + "<th style='text-align:center; padding-right:15px;'>UND</th>"
+                        + "<th style='text-align:right; padding-right:15px;'>PRE&Ccedil;O UNIT&Aacute;RIO</th>"
+                        + "<th style='text-align:center; padding-right:15px;'>QTDE</th>"
+                        + "<th style='text-align:right;'>PRE&Ccedil;O TOTAL</th>"
+                        + "</tr>"
+                        + "<tr><td colspan='5'><hr/></td></tr>"
+                        + linhasBF.toString()
+                        + "<tr><td colspan='5'><br></td></tr>"
+                        + "<tr><td colspan='5'>TOTAL DE &Iacute;TEN NO ESTOQUE : " + totalItensFormatado + "</td></tr>"
+                        + "<tr><td colspan='5'>VALOR TOTAL DO ESTOQUE &nbsp;&nbsp;: " + valorTotalFormatado + "</td></tr>"
+                        + "</table>"
+                        + "</div>"
+                        + "</html>",
+                        "SEX ON THE BAR LTDA - Tela 1.4.2",
+                        JOptionPane.PLAIN_MESSAGE
                     );
                 }
             }
