@@ -242,6 +242,8 @@ public class Principal {
                             + "</div></html>"
                         );
                         
+                        if (NOMEPRODUTO == null) { CONFIRMAENTRADA = "N"; continue; }
+
                         String QTDEATUALSTR = JOptionPane.showInputDialog(
                             "<html><div style='text-align: center;'>"
                             + "SEX ON THE BAR LTDA<br>"
@@ -250,9 +252,10 @@ public class Principal {
                             + "</div><br><br>"
                             + "<div style='text-align: justify;'>"
                             + "PRODUTO    : " + NOMEPRODUTO + "<br><br>"
-                            + "QTDE ATUAL:"
+                            + "QUANTIDADE ATUAL:"
                             + "</div></html>"
                         );
+                        if (QTDEATUALSTR == null) { CONFIRMAENTRADA = "N"; continue; }
                         int QTDEATUAL = Integer.parseInt(QTDEATUALSTR);
                         
                         String QTDEENTRADASTR = JOptionPane.showInputDialog(
@@ -263,10 +266,11 @@ public class Principal {
                             + "</div><br><br>"
                             + "<div style='text-align: justify;'>"
                             + "PRODUTO    : " + NOMEPRODUTO + "<br>"
-                            + "QTDE ATUAL : " + QTDEATUAL + "<br><br>"
-                            + "QTDE ENTRADA:"
+                            + "QUANTIDADE ATUAL    : " + QTDEATUAL + "<br><br>"
+                            + "QUANTIDADE ENTRADA:"
                             + "</div></html>"
                         );
+                        if (QTDEENTRADASTR == null) { CONFIRMAENTRADA = "N"; continue; }
                         int QTDEENTRADA = Integer.parseInt(QTDEENTRADASTR);
                         
                         int QTDEFINAL = QTDEATUAL + QTDEENTRADA;
@@ -279,9 +283,9 @@ public class Principal {
                             + "</div><br><br>"
                             + "<div style='text-align: justify;'>"
                             + "PRODUTO      : " + NOMEPRODUTO + "<br>"
-                            + "QTDE ATUAL   : " + QTDEATUAL + "<br>"
-                            + "QTDE ENTRADA : " + QTDEENTRADA + "<br>"
-                            + "QTDE FINAL   : " + QTDEFINAL + "<br><br>"
+                            + "QUANTIDADE ATUAL    : " + QTDEATUAL + "<br>"
+                            + "QUANTIDADE ENTRADA  : " + QTDEENTRADA + "<br>"
+                            + "QUANTIDADE FINAL    : " + QTDEFINAL + "<br><br>"
                             + "CONFIRMA ENTRADA (S/N)?:"
                             + "</div></html>"
                         );
@@ -343,6 +347,8 @@ public class Principal {
                             + "</div></html>"
                         );
                         
+                        if (NOMEPRODUTOSAIDA == null) { CONFIRMASAIDA = "N"; continue; }
+
                         String QTDEATUALSAIDASTR = JOptionPane.showInputDialog(
                             "<html><div style='text-align: center;'>"
                             + "SEX ON THE BAR LTDA<br>"
@@ -351,9 +357,10 @@ public class Principal {
                             + "</div><br><br>"
                             + "<div style='text-align: justify;'>"
                             + "PRODUTO    : " + NOMEPRODUTOSAIDA + "<br><br>"
-                            + "QTDE ATUAL:"
+                            + "QUANTIDADE ATUAL:"
                             + "</div></html>"
                         );
+                        if (QTDEATUALSAIDASTR == null) { CONFIRMASAIDA = "N"; continue; }
                         int QTDEATUALSAIDA = Integer.parseInt(QTDEATUALSAIDASTR);
                         
                         String QTDESAIDASTR = JOptionPane.showInputDialog(
@@ -364,10 +371,11 @@ public class Principal {
                             + "</div><br><br>"
                             + "<div style='text-align: justify;'>"
                             + "PRODUTO    : " + NOMEPRODUTOSAIDA + "<br>"
-                            + "QTDE ATUAL : " + QTDEATUALSAIDA + "<br><br>"
-                            + "QTDE SAÍDA:"
+                            + "QUANTIDADE ATUAL    : " + QTDEATUALSAIDA + "<br><br>"
+                            + "QUANTIDADE SAÍDA:"
                             + "</div></html>"
                         );
+                        if (QTDESAIDASTR == null) { CONFIRMASAIDA = "N"; continue; }
                         int QTDESAIDA = Integer.parseInt(QTDESAIDASTR);
                         
                         int QTDEFINALSAIDA = QTDEATUALSAIDA - QTDESAIDA;
@@ -380,9 +388,9 @@ public class Principal {
                             + "</div><br><br>"
                             + "<div style='text-align: justify;'>"
                             + "PRODUTO    : " + NOMEPRODUTOSAIDA + "<br>"
-                            + "QTDE ATUAL : " + QTDEATUALSAIDA + "<br>"
-                            + "QTDE SAÍDA : " + QTDESAIDA + "<br>"
-                            + "QTDE FINAL : " + QTDEFINALSAIDA + "<br><br>"
+                            + "QUANTIDADE ATUAL    : " + QTDEATUALSAIDA + "<br>"
+                            + "QUANTIDADE SAÍDA    : " + QTDESAIDA + "<br>"
+                            + "QUANTIDADE FINAL    : " + QTDEFINALSAIDA + "<br><br>"
                             + "CONFIRMA SAÍDA (S/N)?:"
                             + "</div></html>"
                         );
@@ -563,9 +571,12 @@ public class Principal {
                     + "RELATÓRIOS"
                     + "</div><br>"
                     + "<div style='text-align: justify;'>"
-                    + "1 - LISTA DE PREÇOS<br>"
-                    + "2 - BALANÇO FÍSICO-FINANCEIRO<br>"
-                    + "0 - RETORNAR<br><br>"
+                    + "&nbsp;1 - LISTA DE PRE&Ccedil;OS<br>"
+                    + "&nbsp;2 - BALAN&Ccedil;O F&Iacute;SICO-FINANCEIRO<br>"
+                    + "&nbsp;0 - RETORNAR<br><br>"
+                    + "</div>"
+                    + "<div style='text-align: center;'>"
+                    + "OP&Ccedil;&Atilde;O :"
                     + "</div></html>"
                 );
                 if (MENURELATORIO == null) break;
@@ -614,7 +625,7 @@ public class Principal {
                         + "<table width='100%' style='border-collapse:collapse;'>"
                         + "<tr style='border-bottom:1px solid black;'>"
                         + "<th style='text-align:left; padding-right:20px;'>PRODUTO</th>"
-                        + "<th style='text-align:center; padding-right:20px;'>UND</th>"
+                        + "<th style='text-align:center; padding-right:20px;'>UNIDADE</th>"
                         + "<th style='text-align:right;'>PREÇO</th>"
                         + "</tr>"
                         + "<tr><td colspan='3'><hr/></td></tr>"
@@ -650,7 +661,8 @@ public class Principal {
                     for (String[] p : produtosBF) {
                         double precoUnit = Double.parseDouble(
                             p[2].replace(".", "").replace(",", "."));
-                        int qtde = Integer.parseInt(p[3]);
+                        int qtde = 0;
+                        try { qtde = Integer.parseInt(p[3]); } catch (NumberFormatException e) { qtde = 0; }
                         double precoTotal = precoUnit * qtde;
                         totalItens += qtde;
                         valorTotalEstoque += precoTotal;
@@ -687,9 +699,9 @@ public class Principal {
                         + "<table width='100%' style='border-collapse:collapse;'>"
                         + "<tr>"
                         + "<th style='text-align:left; padding-right:15px;'>PRODUTO</th>"
-                        + "<th style='text-align:center; padding-right:15px;'>UND</th>"
+                        + "<th style='text-align:center; padding-right:15px;'>UNIDADE</th>"
                         + "<th style='text-align:right; padding-right:15px;'>PRE&Ccedil;O UNIT&Aacute;RIO</th>"
-                        + "<th style='text-align:center; padding-right:15px;'>QTDE</th>"
+                        + "<th style='text-align:center; padding-right:15px;'>QUANTIDADE</th>"
                         + "<th style='text-align:right;'>PRE&Ccedil;O TOTAL</th>"
                         + "</tr>"
                         + "<tr><td colspan='5'><hr/></td></tr>"
@@ -709,4 +721,3 @@ public class Principal {
 
         }
     }
-}
